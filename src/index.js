@@ -6,8 +6,12 @@ import Navbar from './components/Navbar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <ChakraProvider>
-        <Navbar />
-    </ChakraProvider>
+    <>
+        <h>Hello</h>
+        <ChakraProvider>
+            <Navbar />
+        </ChakraProvider>
+    </>
+    
 );
 
