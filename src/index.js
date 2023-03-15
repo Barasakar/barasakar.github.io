@@ -7,7 +7,7 @@ import Navbar from './components/Navbar';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <>
-        <h>Hello</h>
+        <h>Hi</h>
         <ChakraProvider>
             <Navbar />
         </ChakraProvider>
