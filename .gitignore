@@ -1,0 +1,35 @@
+# Ignore Hugo's public directory where the generated site is stored
+/public/
+
+# Ignore the Hugo cache directory
+/resources/_gen/
+
+# Ignore the Hugo cache directory for development
+/resources/_gen-dev/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Windows Thumbs.db files
+Thumbs.db
+
+# Ignore Node.js modules and npm/yarn-related files
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Ignore your development environment configuration files (e.g., .env)
+.env
+.env.local
+.env.*.local
+
+# Ignore Hugo's configuration files (if they contain sensitive data)
+/config/_default/config.yaml
+/config/production/config.yaml
+
+# Ignore Hugo's temporary files
+resources/
+
+# Ignore temporary or backup files
+*.bak
+*~
