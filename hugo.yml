@@ -1,0 +1,20 @@
+baseURL: "https://barasakar.github.io/"
+languageCode: "en-us"
+title: "Jiayu Lin"
+theme: "PaperMod"
+
+params:
+  profileMode:
+    enabled: true
+    title: "Jiayu Lin" # optional, default will be site title
+    subtitle: "Aspiring Video Game Developer 👾 / Software Developer 💻 "
+    imageUrl: "Images/profile_icon.jpg" # optional
+    imageTitle: "One of my favorite paintings." # optional
+    imageWidth: 150 # custom size
+    imageHeight: 150 # custom size
+
+  socialIcons: # optional
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/in/jiayulin1"
+    - name: "GitHub"
+      url: "https://github.com/Barasakar"
