@@ -2,6 +2,23 @@ baseURL: "https://barasakar.github.io/"
 languageCode: "en-us"
 title: "Jiayu Lin"
 theme: "PaperMod"
+enableEmoji: true
+menu:
+    main:
+    - name: "Home"
+      url: "/"
+      weight: 5
+    - name: "About me"
+      url: "/about"
+      weight: 10
+    - name: "Projects"
+      url: "/projects"
+      weight: 20
+    - name: "Blogs"
+      url: "/blogs"
+      weight: 30
+      
+ 
 
 params:
   profileMode:
@@ -12,9 +29,14 @@ params:
     imageTitle: "One of my favorite paintings." # optional
     imageWidth: 150 # custom size
     imageHeight: 150 # custom size
-
+  
+  
   socialIcons: # optional
     - name: "LinkedIn"
       url: "https://www.linkedin.com/in/jiayulin1"
     - name: "GitHub"
       url: "https://github.com/Barasakar"
+  
+
+
+   
