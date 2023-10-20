@@ -21,10 +21,15 @@ menu:
  
 
 params:
+  halfAndHalfBackground: true
   profileMode:
     enabled: true
     title: "Jiayu Lin" # optional, default will be site title
-    subtitle: "Aspiring Video Game Developer 👾 / Software Developer 💻 "
+    subtitle: " Software Developer 💻 / Aspiring Video Game Developer 👾"
+    intro: "Hello! I'm Jiayu, a passionate developer with experience in both game 
+            development and software engineering. | Welcome to my personal space where I share
+            my projects, insights, and journey. | Unfortunately, this site is currently 🚧under 
+            construction🚧, so you will be see many 404 not found pages."
     imageUrl: "Images/profile_icon.jpg" # optional
     imageTitle: "One of my favorite paintings." # optional
     imageWidth: 150 # custom size
