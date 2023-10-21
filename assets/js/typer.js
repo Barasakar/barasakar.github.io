@@ -50,8 +50,14 @@ document.addEventListener("DOMContentLoaded", function() {
         "Elixir of code and coffee ☕️",
         "Making computers do cool things since 2018",
         "C++: Where performance meets elegance 🌪️🎩",
-        "Master of memory, seeker of pointers 🔍"
+        "Master of memory, seeker of pointers 🔍",
+        "Chasing bugs like a pro... sometimes they're fast! 🐛",
+        "What did Plato say about this?",
+        "Everthing is original",
+        "Metaphysics is...metaphysics",
+        "Hobbbes wrote a book called Leviathan",
+        "Gödel, Escher, Bach"
     ];
-    typeText(outputElement, phrasesToType, 1000, 4000, 50);  
+    typeText(outputElement, phrasesToType, 1000, 2500, 50);  
     // 2s delay between phrases, 4s before restarting, 80ms for each character deletion
 });
