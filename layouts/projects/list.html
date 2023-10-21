@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="projects-grid">
+  {{ range .Data.Pages }}
+  <div class="project-card">
+    
+    <!-- Display the project cover image -->
+    {{/*  {{ with .Params.coverImage }}
+    <a href="{{ $.Page.RelPermalink }}"> 
+      <div class="project-image" style="background-image: url('{{ . | absURL }}');"></div>
+    </a>
+    {{ end }}
+    */}}
+
+    {{ $permalink := .RelPermalink }} <!-- Store permalink in a variable -->
+    {{ with .Params.coverImage }}
+        <a href="{{ $permalink }}">
+        <div class="project-image" style="background-image: url('{{ . | absURL }}');"></div>
+        </a>
+    {{ end }}
+    <!-- Display the project title -->
+    <h2 class ="truncate">
+      <a href="{{ .RelPermalink }}">{{ .Title | truncate 200 }}</a>
+    </h2>
+    
+    <!-- Display the project description -->
+    <p class="truncate">{{ .Params.description | truncate 300 }}</p>
+    
+  </div>
+  {{ end }}
+</div>
+{{ end }}

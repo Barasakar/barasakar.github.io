@@ -1,0 +1,58 @@
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* Three columns */
+    gap: 20px;  /* Gap between grid items */
+}
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;  /* Single column on smaller screens */
+    }
+}
+  
+.project-card {
+    padding: 1rem;
+    transition: box-shadow 0.3s;
+}
+
+.project-grid-item {
+    padding: 20px;
+    min-height: 300px;
+    width: 100%;  /* Ensuring it takes up the full grid cell width */
+}
+
+.project-grid-item img {
+    max-width: 100%;  /* Ensuring image doesn't overflow its container */
+    height: auto;
+}
+
+.project-grid-item h2 {
+    font-size: 24px;  /* Adjust the font size as you like */
+}
+  
+.project-image {
+    width: 100%;      /* Takes the full width of the parent container */
+    height: 200px;    /* height */
+    background-size: cover;       /*  scale the image to cover the element */
+    background-position: center;  /*  center the image within the element */
+    background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-image:hover {
+    transform: scale(1.03); /* Enlarge the image by 10% when hovered */
+    transition: transform 0.3s; /* Smooth the scaling effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+
+.project-grid-item h2 {
+    font-size: 24px;  /* Adjust the font size as you like */
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 500;
+    max-height: 400;
+}
