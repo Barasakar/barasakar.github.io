@@ -1,20 +1,57 @@
-function typeText(element, text) {
-    let index = 0;
+function typeText(element, phrases, delayBetweenPhrases, delayBetweenLoops, deleteDelay) {
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
     function writeChar() {
-        if (index < text.length) {
-            element.textContent += text[index];
-            index++;
-            setTimeout(writeChar, 100);  // adjust the delay here
+        if (!isDeleting) {
+            // Typing forward
+            if (charIndex < phrases[phraseIndex].length) {
+                element.textContent += phrases[phraseIndex][charIndex];
+                charIndex++;
+                setTimeout(writeChar, 70);  // delay between characters
+            } else {
+                setTimeout(() => {
+                    isDeleting = true;
+                    writeChar();
+                }, delayBetweenPhrases);
+            }
+        } else {
+            // Deleting characters
+            if (charIndex > 0) {
+                element.textContent = element.textContent.slice(0, -1);
+                charIndex--;
+                setTimeout(writeChar, deleteDelay);  // delay between deleting characters
+            } else {
+                isDeleting = false;
+                phraseIndex++;
+                if (phraseIndex >= phrases.length) {
+                    phraseIndex = 0;  // loop back to the start
+                    setTimeout(writeChar, delayBetweenLoops);
+                } else {
+                    setTimeout(writeChar, delayBetweenPhrases);
+                }
+            }
         }
     }
+    
     writeChar();
 }
 
-console.log("Type script loaded!");
 document.addEventListener("DOMContentLoaded", function() {
     const outputElement = document.getElementById('typed-output');
-    // You might need a different way to fetch the text you want to type out
-    const textToType = outputElement.textContent;
-    outputElement.textContent = ""; // Clear it out so it can be typed into
-    typeText(outputElement, textToType);
+    const phrasesToType = [
+        "Software Developer 💻",
+        "Aspiring Video Game Developer 👾",
+        "Philosopher",
+        "Gamer",
+        "Artist",
+        "Researcher",
+        "Elixir of code and coffee ☕️",
+        "Making computers do cool things since 2018",
+        "C++: Where performance meets elegance 🌪️🎩",
+        "Master of memory, seeker of pointers 🔍"
+    ];
+    typeText(outputElement, phrasesToType, 1000, 4000, 50);  
+    // 2s delay between phrases, 4s before restarting, 80ms for each character deletion
 });

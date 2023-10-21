@@ -32,7 +32,7 @@
         {{- end }}
         <h1>{{ .title | default site.Title | markdownify }}</h1>
         <div id="typed-output">
-            <span>{{ .subtitle | markdownify }}</span>
+            <span></span>
         </div>
         {{- if .intro }}
             <p>{{ replace .intro "|" "<br>" | safeHTML }}</p>
@@ -58,8 +58,8 @@
             {{- end }}
         </div>
         {{- end }}
-    </div>
-
-    
+    </div> 
     {{- end }}
 </div>
+{{ $js := resources.Get "js/typer.js" | resources.Fingerprint }}
+<script src="{{ $js.Permalink }}"></script>
