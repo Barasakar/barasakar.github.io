@@ -1,7 +1,7 @@
 ---
 title: "Project Komodo"
 description: "2021 - 2022 | A web VR based educational platform."
-coverImage: "Images/projects_page/project_komodo.png"
+coverImage: "Images/projects_page/project_1_cover.png"
 type: "projects"
 weight: 1
 draft: false
