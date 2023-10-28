@@ -8,6 +8,20 @@
     line-height: var(--header-height);
 }
 
+
+.header {
+    position: fixed;
+    top: 0;       /* Make sure it's at the very top */
+    left: 0;      /* Start from the left edge of the viewport */
+    width: 100%;  
+    z-index: 1000; 
+    background-color: var(--nav-theme);
+}
+
+body {
+    padding-top: 60px;  /* this is for keeping the navigation bar away from the content */
+}
+
 .nav a {
     display: block;
 }
