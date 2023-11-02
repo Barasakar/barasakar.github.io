@@ -1,0 +1,58 @@
+{{ define "main" }}
+  <!-- Fetch data from aboutme.yaml -->
+  {{ $aboutme := .Site.Data.aboutme }}
+
+  <div class="about-me-container">
+    <!-- Bio Section -->
+    <div class="bio-section">
+      <img src="{{ $aboutme.picture | absURL }}" alt="Picture of {{ $aboutme.name }}" class="bio-pic">
+      <h2>{{ $aboutme.name }}</h2>
+      <p>{{ $aboutme.bio | markdownify }}</p>
+    </div>
+    
+    <!-- Right content container -->
+    <div class="right-content">
+      <div class="terminal">
+        <button id="terminal-close" aria-label="Close Terminal">×</button>
+        <input type="text" id="terminal-input" placeholder="Type 'help' for commands..." />
+        <div id="terminal-output"></div>
+      </div>
+      <div class="all-info">
+        <!-- Education Section -->
+        <div class="education-section">
+          <h3>Education</h3>
+          <ul>
+            {{ range $aboutme.education }}
+              <li>{{ .degree }}, {{ .institution }} ({{ .year }})</li>
+            {{ end }}
+          </ul>
+        </div>
+        
+        <!-- Skills Section -->
+        <div class="skills-section">
+          <h3>Skills</h3>
+          <ul>
+            {{ range $aboutme.skills }}
+              <li>{{ . }}</li>
+            {{ end }}
+          </ul>
+        </div>
+        
+        <!-- Hobbies Section -->
+        <div class="hobbies-section">
+          <h3>Hobbies</h3>
+          <ul>
+            {{ range $aboutme.hobbies }}
+              <li>{{ . }}</li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var aboutMeData = {{ $aboutme | jsonify | safeJS }};
+  </script>
+  {{ $js := resources.Get "js/terminal.js" | resources.Fingerprint }}
+  <script src="{{ $js.Permalink }}"></script>
+{{ end }}

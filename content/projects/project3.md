@@ -6,4 +6,3 @@ weight: 3
 draft: true
 ---
 
-Detailed content about Project 3. This can be a long description, challenges faced, technologies used, or any other details you want to share.

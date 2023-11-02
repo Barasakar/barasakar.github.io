@@ -1,0 +1,30 @@
+# data/aboutme.yaml
+
+bio: >
+  Hey this is Jiayu. You can call me Jonathan. I made the About Me page a more interactive by designing a command line interface!
+  Please give it a try!
+
+picture: "Images/me.jpg"  # Make sure to place your picture in the 'static/images' directory
+
+education:
+  - degree: M.S. in Computer Science
+    institution: Washington University in St. Louis
+    year: 2022-2024  
+  - degree: B.S. in Philosophy
+    institution: University of Illinois at Urbana-Champaign
+    year: 2018-2021
+
+skills:
+  - Algorithm Analysis 
+  - Software Development
+  - Game Development
+  - Web Development
+  - Graphic Design
+  - Project Management
+
+
+
+hobbies:
+  - Drawing
+  - Cooking
+  - Playing video games 

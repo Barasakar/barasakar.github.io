@@ -1,4 +1,5 @@
 ---
 title: "About Me"
-layout: "about/about"
+type: "about"
+layout: "aboutme"
 ---

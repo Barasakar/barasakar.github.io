@@ -17,36 +17,36 @@
 .project-grid-item {
     padding: 20px;
     min-height: 300px;
-    width: 100%;  /* Ensuring it takes up the full grid cell width */
+    width: 100%;  
 }
 
 .project-grid-item img {
-    max-width: 100%;  /* Ensuring image doesn't overflow its container */
+    max-width: 100%;  
     height: auto;
 }
 
 .project-grid-item h2 {
-    font-size: 24px;  /* Adjust the font size as you like */
+    font-size: 24px;  
 }
   
 .project-image {
-    width: 100%;      /* Takes the full width of the parent container */
-    height: 200px;    /* height */
-    background-size: cover;       /*  scale the image to cover the element */
-    background-position: center;  /*  center the image within the element */
-    background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+    width: 100%;      
+    height: 200px;   
+    background-size: cover;       
+    background-position: center; 
+    background-repeat: no-repeat; 
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .project-image:hover {
     transform: scale(1.03); /* Enlarge the image by 10% when hovered */
-    transition: transform 0.3s; /* Smooth the scaling effect */
+    transition: transform 0.3s; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 
 .project-grid-item h2 {
-    font-size: 24px;  /* Adjust the font size as you like */
+    font-size: 24px;  
 }
 
 .truncate {

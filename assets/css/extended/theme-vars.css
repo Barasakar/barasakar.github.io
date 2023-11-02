@@ -8,6 +8,8 @@
     --radius: 8px;
     --theme: rgb(255, 255, 255);
     --nav-theme: #d6d6d6;
+    --terminal-background-color: #333;
+    --terminal-inputfont-color: #fff; 
     --entry: rgb(226, 226, 226);
     --primary: rgb(30, 30, 30);
     --secondary: rgb(108, 108, 108);
@@ -21,6 +23,8 @@
 .dark {
     --theme: rgb(29, 30, 32);
     --nav-theme: #282828;
+    --terminal-background-color: #333;
+    --terminal-inputfont-color: #fff; 
     --entry: rgb(46, 46, 51);
     --primary: rgb(218, 218, 219);
     --secondary: rgb(155, 156, 157);
