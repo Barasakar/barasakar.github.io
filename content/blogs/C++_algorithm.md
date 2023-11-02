@@ -1,5 +1,10 @@
+---
+title: "Flooding Problem"
+description: "Some notes for the LeetCode grind. The solution is written in C++.s"
+draft: false
+---
 
-# Working Solution:
+## Working Solution:
 ```c++
 class Solution {
 public:
@@ -58,7 +63,7 @@ public:
 ```
 
 
-# Improved version:
+## Improved version:
 ```c++
 class Solution {
 public:
@@ -132,5 +137,3 @@ public:
 ```c++
 visited.resize(rows, vector<bool>(cols, false));
 ```
-
-- 

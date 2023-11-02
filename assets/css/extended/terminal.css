@@ -4,6 +4,7 @@
     color: #fff;
     padding: 20px;
     font-size: 1.2em; /* Increase font size */
+    height: 500px;
     max-height: 500px; /* for example, or 100% if it's within a flex container */
     overflow-y: auto; /* this will allow vertical scrolling */
 }
@@ -24,12 +25,12 @@
     border: none;
     padding: 15px; /* Increase padding for a larger feel */
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1em; /* Set font size relative to the parent .terminal font size */
+    font-size: 14px; /* Set font size relative to the parent .terminal font size */
 }
 
 #terminal-output {
     font-family: 'Courier New', Courier, monospace; 
-    font-size: 1em; 
+    font-size: 14px; 
     line-height: 1.5; 
     display: block; 
     max-height: 450px; 

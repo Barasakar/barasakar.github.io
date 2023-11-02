@@ -1,0 +1,1 @@
+This repo contains the code for my portfolio website. The website is powered by Hugo and PaperMod theme; I overwrote some of the PaperMod layouts. Please don't hack :O
