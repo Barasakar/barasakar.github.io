@@ -1,10 +1,12 @@
 ---
-title: "Flooding Problem"
+title: "LeetCode Problems"
 description: "Some notes for the LeetCode grind. The solution is written in C++.s"
+tags: ["LeetCode"]
 draft: false
 ---
 
-## Working Solution:
+## Flooding Problem:
+### Working Solution:
 ```c++
 class Solution {
 public:
@@ -63,7 +65,7 @@ public:
 ```
 
 
-## Improved version:
+### Improved version:
 ```c++
 class Solution {
 public:
