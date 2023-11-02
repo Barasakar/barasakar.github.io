@@ -29,7 +29,8 @@ params:
     intro: "Hello! I'm Jiayu, a passionate developer with experience in both game 
             development and software engineering. | Welcome to my personal space where I share
             my projects, insights, and journey. | Unfortunately, this site is currently 🚧under 
-            construction🚧, so you will be see many 404 not found pages."
+            construction🚧, and many things are not refined yet, but they will be edited soon. Please
+            bear with me!"
     imageUrl: "Images/profile_icon.jpg" # optional
     imageTitle: "One of my favorite paintings." # optional
     imageWidth: 150 # custom size
