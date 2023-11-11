@@ -5,7 +5,15 @@ tags: ["LeetCode"]
 draft: false
 ---
 
-## Flooding Problem:
+
+## Linked List Cycle:
+The trick here is to have two pointers (one is slower and another is faster). If there is a cycle in a linked list, then these two pointers will meet each other at some point. 
+`Note:` it is worth noting that for C++ , you should not expect that C++ allows you to access nullptr. You always have to check if something is a nullptr or not before accessing it. I know it is common sense for C++ programmers, but I did have this wrong assumption `:(`
+
+## Implementing queue with stacks:
+The hint here is to use two stacks: `input` and `output`. The input stack is responsible for the `push()` operation, and the output stack is for the `peek()` and `pop()` operations.
+
+## Flooding Fill:
 ### Working Solution:
 ```c++
 class Solution {
@@ -125,13 +133,13 @@ public:
 ```
 
 # Notes to myself:
-- I initially created a 2D vector but didn't initialize it.
+- Always remember to initialize something; I initially created a 2D vector but didn't initialize it.
 - For vector, remember to use `[][]` when you are certain that the current element you are accessing is not out of bound. The `.at()` notation, while being safer, it is slower. This is because direct access using `[]` does not perform this bounds checking, so it's faster. However, it's riskier because if you access an element out of bounds, it results in undefined behavior.
 
 ```c++
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            visited.at(i).at(j) = false;
+            visited.at(i).at(j) = false; // => visited[i][i]
         }
     }
 ```
