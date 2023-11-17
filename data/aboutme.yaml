@@ -4,7 +4,7 @@ bio: >
   Hey this is Jiayu. You can call me Jonathan. I made the About Me page a more interactive by designing a command line interface!
   Please give it a try!
 
-picture: "Images/me.jpg"  # Make sure to place your picture in the 'static/images' directory
+picture: "Images/me.jpg"
 
 education:
   - degree: M.S. in Computer Science
