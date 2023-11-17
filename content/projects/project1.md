@@ -15,4 +15,9 @@ The softwares being used for Komodo are Unity game engine, WebGL, MySQL (for dat
 
 Below is the web interface of Project Komodo:
 ![Komodo Web Interface](/Images/projects_content/project_1/Komodo_web.png)
-As you can see, there are courses listed on the web interface.
+The web interface was built with Vue.js as frontend and Node.js as the backend. As you can see, the website is showing courses that uses Komodo service. By entering the courses, instructors and students could see the sessions they are in:
+![Komodo Session](/Images/projects_content/project_1/Komodo_session.png)
+
+After entering the course session and joining a virtual session, users can participate the session through two different views: desktop view and VR view. Below is what a user might see when in a desktop view:
+![Komodo Session](/Images/projects_content/project_1/Komodo_desktop.png)
+

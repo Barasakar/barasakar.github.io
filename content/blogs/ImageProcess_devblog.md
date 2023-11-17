@@ -5,8 +5,6 @@ tags: ["Image Processing", "Dev Blog"]
 draft: false
 ---
 
-# Dev Blog for Image Processing Project:
-
 ## 2023-11-15
 ### Shallow Copy vs. Deep Copy
 This issue came up when I was working on storing a `.tiff` file that contains information for a 3D model and displaying the information on `Qt` interface. 
