@@ -1,9 +1,9 @@
 ---
 title: "Arc Remover"
 description: "An image processing tool that removes artifacts from image data (.tiff)."
-coverImage: ""
+coverImage: "Images/projects_page/project_3_cover.png"
 weight: 3
-draft: true
+draft: false
 ---
 
 ## Introduction📓:
@@ -13,6 +13,23 @@ This is a C++ program that focuses on removing arc-liked artifacts from OCT(Opti
 - **Programming languages:** `C++`.
 - **External Libraries:** `Qt Framework`, `OpenCV`, `LibTIFF`, and `Eigen`.  
 - **Tool:** `Visual Studio`.
+
+## Project Demo:
+The GUI is written with using Qt's framework. As you can see, user can import a tiff file, and the program will read the tiff file and transform it into QImages and display the images on the UI.
+![Import File](/Images/projects_content/project_3/importFile.gif)
+
+The imported images are in grayscaled. If the user wants, the program can binarize the image by using Otsu Threshold Algorithm and Gaussian Blur from OpenCV. At the same time, the program will continue maintaining the grayscale status of the images while binarizing the images.
+![Binarization](/Images/projects_content/project_3/Binarization.gif)
+
+Another functionality that the program provides is contouring. This functionality will draw contours around the white (with a value of 255) in the images:
+![contouring](/Images/projects_content/project_3/contouring.gif)
+
+Finally, the program can try to get rid of the arc-liked artifacts on the images:
+![goal](/Images/projects_content/project_3/goal.png)
+![findMaxima](/Images/projects_content/project_3/findMaxima.gif)
+![removeArcs](/Images/projects_content/project_3/removeArcs.gif)
+
+There are still some flaws with the removing process as you might have noticed some arcs are not being removed. 
 
 ## Project Description📋:
 **Completed Features:**
