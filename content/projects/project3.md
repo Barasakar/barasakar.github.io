@@ -7,7 +7,7 @@ draft: false
 ---
 
 ## Introduction📓:
-This is a C++ program that focuses on removing arc-liked artifacts from OCT(Optical Coherence Tomagraphy) images. Users can interact with this processing tool through a GUI. Functionalities in this tool include binarization, contouring (with marching squares), and removing arc-liked artifacts. Users can simply open a tiff file, and the program will load the file and display in on the UI.
+This C++ program is designed to eliminate arc-like artifacts from OCT (Optical Coherence Tomography) images. It features a user-friendly GUI for interaction. The tool includes functionalities such as binarization, contouring (using marching squares algorithm), and the removal of arc-like artifacts. Users can effortlessly open a TIFF file, and the program will load and display it on the UI. After this, user can perform image processing operations by simply clicking buttons.
 
 ## Libraries & technologies Involve💻:
 - **Programming languages:** `C++`.
@@ -21,7 +21,7 @@ The GUI is written with using Qt's framework. As you can see, user can import a 
 The imported images are in grayscaled. If the user wants, the program can binarize the image by using Otsu Threshold Algorithm and Gaussian Blur from OpenCV. At the same time, the program will continue maintaining the grayscale status of the images while binarizing the images.
 ![Binarization](/Images/projects_content/project_3/Binarization.gif)
 
-Another functionality that the program provides is contouring. This functionality will draw contours around the white (with a value of 255) in the images:
+Another functionality that the program provides is contouring. This functionality will draw contours around the white pixels (with a value of 255) in the images:
 ![contouring](/Images/projects_content/project_3/contouring.gif)
 
 Finally, the program can try to get rid of the arc-liked artifacts on the images:
