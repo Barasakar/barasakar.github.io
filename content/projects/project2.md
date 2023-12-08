@@ -3,6 +3,7 @@ title: "Web Calendar"
 description: "A web calendar that allows users to add events."
 coverImage: "Images/projects_page/project_2_cover.png"
 weight: 3
+draft: false
 ---
 
 ## Introduction📓:

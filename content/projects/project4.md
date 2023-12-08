@@ -3,7 +3,7 @@ title: "WashU Queue"
 description: "An online queue for class office hours"
 coverImage: "Images/projects_page/project_4_cover.png"
 weight: 2
-draft: true
+draft: false
 ---
 
 ## Introduction📓:
