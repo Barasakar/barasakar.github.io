@@ -7,24 +7,25 @@ draft: false
 ---
 
 ## Introduction📓:
-This C++ program is designed to eliminate arc-like artifacts from OCT (Optical Coherence Tomography) images. It features a user-friendly GUI for interaction. The tool includes functionalities such as binarization, contouring (using marching squares algorithm), and the removal of arc-like artifacts. Users can effortlessly open a TIFF file, and the program will load and display it on the UI. After this, user can perform image processing operations by simply clicking buttons.
+This C++ program is designed to eliminate arc-like artifacts from OCT (Optical Coherence Tomography) images. It features a user-friendly GUI for interaction. The tool offers functionalities such as binarization, contouring (using the marching squares algorithm), and the removal of arc-like artifacts. Users can effortlessly open a TIFF file, and the program will load and display it on the UI. After this, users can perform image processing operations by simply clicking buttons.
 
-## Libraries & technologies Involve💻:
+## Libraries & Technologies Involved💻:
 - **Programming languages:** `C++`.
 - **External Libraries:** `Qt Framework`, `OpenCV`, `LibTIFF`, and `Eigen`.  
 - **Tool:** `Visual Studio`.
 
 ## Project Demo:
-The GUI is written with using Qt's framework. As you can see, user can import a tiff file, and the program will read the tiff file and transform it into QImages and display the images on the UI.
+The GUI is developed using Qt's framework. Users can import a TIFF file, and the program will read the file, transform it into QImages, and display the images on the UI.
 ![Import File](/Images/projects_content/project_3/importFile.gif)
 
-The imported images are in grayscaled. If the user wants, the program can binarize the image by using Otsu Threshold Algorithm and Gaussian Blur from OpenCV. At the same time, the program will continue maintaining the grayscale status of the images while binarizing the images.
+The imported images are grayscale. If desired, the program can binarize the image using the Otsu Threshold Algorithm and Gaussian Blur from OpenCV, while maintaining the grayscale status of the images.
 ![Binarization](/Images/projects_content/project_3/Binarization.gif)
 
-Another functionality that the program provides is contouring. This functionality will draw contours around the white pixels (with a value of 255) in the images:
+Another functionality is contouring, which draws contours around the white pixels (with a value of 255) in the images.
 ![contouring](/Images/projects_content/project_3/contouring.gif)
 
-Finally, the program can try to get rid of the arc-liked artifacts on the images:
+Finally, the program Finally, the program attempts to eliminate the arc-like artifacts in the images. There are still some imperfections in the removal process, as some arcs may not be completely removed. 
+ try to get rid of the arc-liked artifacts on the images:
 ![goal](/Images/projects_content/project_3/goal.png)
 ![findMaxima](/Images/projects_content/project_3/findMaxima.gif)
 ![removeArcs](/Images/projects_content/project_3/removeArcs.gif)
@@ -33,20 +34,23 @@ There are still some flaws with the removing process as you might have noticed s
 
 ## Project Description📋:
 **Completed Features:**
-- Import tiff files [✔︎]
-- A slider that allows users to go through all the images in a tiff file [✔︎]
+- Import TIFF files [✔︎]
+- A slider to navigate through images in a TIFF file [✔︎]
 - Binarization [✔︎]
 - Contouring [✔︎]
-- remove arc-liked artifacts partially [✔︎]
+- Partial removal of arc-like artifacts [✔︎]
 
-**Incompleted feature (all of them are nice-to-have features):**
-- Render tiff files on the GUI in 3D.
-- Render the processed tiff files in 3D.
+**Incomplete Features (nice-to-have):**
+- Render TIFF files in 3D on the GUI.
+- Render the processed TIFF files in 3D.
 
 **Core Algorithm:**
-The core algorithm that I will be talking about is generating a parabola based on the arc-liked artificat on the image since it plays a big role in removing artifacts.
-Here are the steps for this algorithm:
-- Find the local maximas on each column in the image. If the column has two or more local maximas, discard them and go to the next one. This step ensures that the program will spot one local maxima for each column. Of course, pixel points will be lost for this step, but it is for the greater good. This step is in the `findPeaks()` function:
+The core algorithm involves generating a parabola based on the arc-like artifact in the image, which is crucial in artifact removal. The steps include:
+- Finding local maxima in each column of the image, discarding columns with multiple maxima. This is performed in the `findPeaks()` function.
+- Filtering the points based on a certain range (y-coordinate), as shown in the provided code snippet.
+- Fitting the filtered points to a polynomial function that closely matches the arc-like artifacts.
+- Generating y-values for the curve using the coefficients and x-values.
+- Using this information to either draw or erase the artifact based on the parabola, as demonstrated in the `drawQuadratic()` function.
 
 ```c++
 void imageProcessing::findPeaks(QImage image, QVector<int> & peaksVal, QVector<int> &peaksLocation, int x) {
@@ -62,7 +66,7 @@ void imageProcessing::findPeaks(QImage image, QVector<int> & peaksVal, QVector<i
 	}
 }
 ```
-- Once I find all the possible local maximas (or points) for each row in the image, I proceed to clean up and process these points. Given the nature of this image data, there is a lot of noise that distracts the `findPeaks()` function from finding the idea points. So I select points that are within a certain range (or y-coordinate). Here is the code:
+
 ```c++
 for (int i = 0; i < first_index.size(); ++i) {
 		if (150 < first_index[i] && first_index[i] < medianValue - 160) {
@@ -75,7 +79,6 @@ for (int i = 0; i < first_index.size(); ++i) {
 	}
 ```
 
-- With the filtered points, next step is to fit these points and find the coefficients for a polynomial functions. This polynomial functions should match the arc-liked artificats as close as possible. 
 ```c++
 void imageProcessing::polyfit(const QVector<int>& x, const QVector<int>& y, Eigen::VectorXd& coefficients, int order) {
 	int numPoints = x.size();

@@ -2,9 +2,61 @@
 title: "LeetCode Problems"
 description: "Some notes for the LeetCode grind. The solution is written in C++.s"
 tags: ["LeetCode"]
-draft: false
+draft: true
 ---
+## Maximum Subarray (Medium):
+Given an integer array `nums`, find the subarray with the largest sum and output the sum.
 
+The intuitive Brute Force approach will be having two for-loops that behaves as follow:
+```c++
+int largestSum = INT_MIN;
+for (int i = 0 ; i < nums.size(); i++) {
+    int currentSum = 0;
+    for (int j = i; j < nums.size(); j++) {
+        currentSum += nums[j];
+        largestSum = std::max(currentSum, largestSum);
+    }
+}
+
+return largestSum
+```
+
+However the Brute Force will take `O(N^2)` time. Interviewers ain't gonna be happy with this speed. 
+
+The ideal way is to work on this with Dynamic Programming. To decide whether a problem can be solved with DP, we can ask if this problem can be solved by dividing it up into smaller problems, and if these smaller problems can be used to solve a larger problem.
+
+It is important to know what the subproblem is for any DP related problems. In the `Maximum Subarray` problem, the subproblem can be defined as "What is the maximum subarray sum ending at this particular element (index i)?"
+
+## Majority Element:
+- Create a Hash map in C++ by using `unodered_map`:
+```c++
+std::unordered_map count;
+int threshold = nums.size() / 2;
+for (int num : nums) {
+    // This line is particularly important.
+    // The key is the "value of num", and the value is the number of times num has appeared.
+    // It does two things: if num is inside count, it increases the value by one; if not, it automatically inserts the 
+    // num to the count.
+    ++count[num]; 
+    if (count[num] > threshold) {
+        return num;
+    }
+}
+```
+- The second method is Boyer-Moore Voting Algorithm.
+You set up a candidate and a count. 
+```c++
+int candidate = -1;
+int count = 0;
+
+for (int num : nums) {
+    if (count == 0) {
+        candidate = num;
+    }
+    count += (candidate == num) ? 1 : -1;
+}
+return candidate;
+```
 
 ## Linked List Cycle:
 The trick here is to have two pointers (one is slower and another is faster). If there is a cycle in a linked list, then these two pointers will meet each other at some point. 
