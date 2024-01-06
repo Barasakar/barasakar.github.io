@@ -6,14 +6,14 @@ weight: 3
 draft: false
 ---
 
-## Introduction📓:
+## Introduction📓
 This web calendar allows users to add, edit, and delete events. However, users must have an account to perform the aforementioned actions. To create an account, click the Login button and then the Sign Up button. Rest assured, all sensitive information is hashed! The calendar's implementation emphasizes preventing SQL injection attacks and utilizing CSRF tokens. If you have reservations but still want to test the website, feel free to use a simple password or one you'd never use elsewhere :D
 
-## Softwares Involve💻:
+## Softwares Involve💻
 - **Programming languages:** HTML, CSS, JavaScript, PHP, JSON, and SQL
 - **Tools:** Amazon Web Services (EC2 Instance) and MySQL
 
-## Project Description📋:
+## Project Description📋
 Here is the login page:
 ![Login Page](/Images/projects_content/project_2/login_page.png)
 

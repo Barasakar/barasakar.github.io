@@ -6,15 +6,15 @@ weight: 2
 draft: false
 ---
 
-## Introduction📓:
+## Introduction📓
 Office hours for large classes, especially before major project deadlines, often become hectic and busy for teaching assistants. Keeping track of the order of students needing assistance is challenging, with the current method limited to using a whiteboard to list names. This website seeks to resolve this issue by offering a clear and user-friendly interface. It introduces a more organized, queue-based system, allowing students to easily sign up for office hours and request help from the teaching assistants.
 
-## Softwares Involve💻:
+## Softwares Involve💻
 - **Programming languages:** Python, JavaScript, HTML, and CSS.
 - **Tools:** MongoDB, Django Framework.
 
 
-## Project Demo:
+## Project Demo
 Users can login with their username and password, and if they aren't registered for the website, they could sign up by using the sign up form.
 ![login page](/Images/projects_content/project_4/login_page.png)
 

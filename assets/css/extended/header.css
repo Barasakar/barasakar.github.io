@@ -11,13 +11,15 @@
 
 .header {
     position: fixed;
-    top: 0;       /* Make sure it's at the very top */
-    left: 0;      /* Start from the left edge of the viewport */
+    top: 0;       
+    left: 0;      
     width: 100%;  
     z-index: 1000; 
     background-color: rgba(var(--nav-theme), 0.5); 
-    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+    backdrop-filter: blur(5px); /* Standard syntax */
 }
+
 
 body {
     padding-top: 60px;  /* this is for keeping the navigation bar away from the content */

@@ -6,15 +6,15 @@ weight: 1
 draft: false
 ---
 
-## Introduction📓:
+## Introduction📓
 This C++ program is designed to eliminate arc-like artifacts from OCT (Optical Coherence Tomography) images. It features a user-friendly GUI for interaction. The tool offers functionalities such as binarization, contouring (using the marching squares algorithm), and the removal of arc-like artifacts. Users can effortlessly open a TIFF file, and the program will load and display it on the UI. After this, users can perform image processing operations by simply clicking buttons.
 
-## Libraries & Technologies Involved💻:
+## Libraries & Technologies Involved💻
 - **Programming languages:** `C++`.
 - **External Libraries:** `Qt Framework`, `OpenCV`, `LibTIFF`, and `Eigen`.  
 - **Tool:** `Visual Studio`.
 
-## Project Demo:
+## Project Demo
 The GUI is developed using Qt's framework. Users can import a TIFF file, and the program will read the file, transform it into QImages, and display the images on the UI.
 ![Import File](/Images/projects_content/project_3/importFile.gif)
 
@@ -32,7 +32,7 @@ Finally, the program Finally, the program attempts to eliminate the arc-like art
 
 There are still some flaws with the removing process as you might have noticed some arcs are not being removed. 
 
-## Project Description📋:
+## Project Description📋
 **Completed Features:**
 - Import TIFF files [✔︎]
 - A slider to navigate through images in a TIFF file [✔︎]
