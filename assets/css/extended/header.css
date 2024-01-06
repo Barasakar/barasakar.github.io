@@ -15,7 +15,8 @@
     left: 0;      /* Start from the left edge of the viewport */
     width: 100%;  
     z-index: 1000; 
-    background-color: var(--nav-theme);
+    background-color: rgba(var(--nav-theme), 0.5); 
+    backdrop-filter: blur(5px);
 }
 
 body {
