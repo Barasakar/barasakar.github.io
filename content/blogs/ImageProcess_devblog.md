@@ -7,7 +7,7 @@ date: "2023-11-28"
 hideInitially: false
 ---
 ## 2023-11-28
-### Contouring Development:
+### Contouring Development
 The contouring implementation that I was working on is based on the Marching Squares algorithm. The square data structure I design contains the following information:
 ```c++
 struct PixelBlock {

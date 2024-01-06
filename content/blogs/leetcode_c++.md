@@ -6,7 +6,7 @@ draft: false
 date: "2024-01-02"
 hideInitially: true #this is a custom Front Matter Variable.
 ---
-## Maximum Subarray (Medium):
+## Maximum Subarray (Medium)
 Given an integer array `nums`, find the subarray with the largest sum and output the sum.
 
 The intuitive Brute Force approach will be having two for-loops that behaves as follow:
@@ -29,7 +29,7 @@ The ideal way is to work on this with Dynamic Programming. To decide whether a p
 
 It is important to know what the subproblem is for any DP related problems. In the `Maximum Subarray` problem, the subproblem can be defined as "What is the maximum subarray sum ending at this particular element (index i)?"
 
-## Majority Element:
+## Majority Element
 - Create a Hash map in C++ by using `unodered_map`:
 ```c++
 std::unordered_map count;
@@ -60,14 +60,14 @@ for (int num : nums) {
 return candidate;
 ```
 
-## Linked List Cycle:
+## Linked List Cycle
 The trick here is to have two pointers (one is slower and another is faster). If there is a cycle in a linked list, then these two pointers will meet each other at some point. 
 `Note:` it is worth noting that for C++ , you should not expect that C++ allows you to access nullptr. You always have to check if something is a nullptr or not before accessing it. I know it is common sense for C++ programmers, but I did have this wrong assumption `:(`
 
-## Implementing queue with stacks:
+## Implementing queue with stacks
 The hint here is to use two stacks: `input` and `output`. The input stack is responsible for the `push()` operation, and the output stack is for the `peek()` and `pop()` operations.
 
-## Flooding Fill:
+## Flooding Fill
 ### Working Solution:
 ```c++
 class Solution {
@@ -127,7 +127,7 @@ public:
 ```
 
 
-### Improved version:
+### Improved version
 ```c++
 class Solution {
 public:
