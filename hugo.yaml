@@ -21,6 +21,12 @@ menu:
  
 
 params:
+  ShowReadingTime: true
+  UseHugoToc: true
+  showtoc: true
+  tocopen: true
+  author: "Jiayu Lin"
+  TocSide: 'left'
   halfAndHalfBackground: true
   profileMode:
     enabled: true
