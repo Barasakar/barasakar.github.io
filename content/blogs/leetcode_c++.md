@@ -2,7 +2,9 @@
 title: "LeetCode Problems"
 description: "Some notes for the LeetCode grind. The solution is written in C++.s"
 tags: ["LeetCode"]
-draft: true
+draft: false
+date: "2024-01-02"
+hideInitially: true #this is a custom Front Matter Variable.
 ---
 ## Maximum Subarray (Medium):
 Given an integer array `nums`, find the subarray with the largest sum and output the sum.

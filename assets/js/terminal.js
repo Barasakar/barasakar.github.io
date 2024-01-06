@@ -25,6 +25,7 @@ function closeTerminal() {
 }
 
 
+
 document.addEventListener('DOMContentLoaded', function() {
   var terminalInput = document.getElementById('terminal-input');
   var terminalOutput = document.getElementById('terminal-output');
@@ -40,7 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
   closeButton.addEventListener('click', closeTerminal);
   
   function handleCommand(command) {
-    switch (command.toLowerCase()) {
+    const parts = command.split(' ');
+    const commandName = parts[0].toLowerCase();
+    const args = parts.slice(1);
+    switch (commandName.toLowerCase()) {
       case 'education':
         if (aboutMeData && aboutMeData.education) {
           // Create an array of string representations of each education entry
@@ -64,9 +68,21 @@ document.addEventListener('DOMContentLoaded', function() {
       case 'help':
         terminalOutput.textContent = 'Try typing: education, skills, hobbies';
         break;
+      case 'enable':
+        if (args.length) {
+          console.log(args);
+          console.log(args[0]);
+          togglePostVisibility(args[0]);
+        } else {
+            terminalOutput.textContent = 'Please specify a post identifier.';
+        }
+        break;
       default:
         terminalOutput.textContent = 'Command not recognized. Type "help" for a list of commands.';
     }
+  }
+  function togglePostVisibility(postId) {
+    window.location.href = `/blogs?togglePost=${postId}`;
   }
 });
 

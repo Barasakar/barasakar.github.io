@@ -1,9 +1,0 @@
-{{ define "main" }}
-<div class="tags-list">
-    {{ range .Site.Taxonomies.tags.Alphabetical }}
-    <a href="{{ .Page.Permalink }}" class="tag-square">
-        {{ .Page.Title }} ({{ .Count }})
-    </a>
-    {{ end }}
-</div>
-{{ end }}

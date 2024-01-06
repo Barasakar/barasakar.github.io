@@ -1,8 +1,10 @@
 ---
-title: "Dev Blog for Image Processing Project:"
+title: "Dev Blog for Image Processing Projects"
 description: "This blog records some of the interesting stuff I noticed during my development for an Image Processing software that is based on C++."
 tags: ["Image Processing", "Dev Blog"]
 draft: false
+date: "2023-11-28"
+hideInitially: false
 ---
 ## 2023-11-28
 ### Contouring Development:
