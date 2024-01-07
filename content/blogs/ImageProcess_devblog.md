@@ -3,9 +3,17 @@ title: "Dev Blog for Image Processing Projects"
 description: "This blog records some of the interesting stuff I noticed during my development for an Image Processing software that is based on C++."
 tags: ["Image Processing", "Dev Blog"]
 draft: false
-date: "2023-11-28"
+date: "2024-01-06"
 hideInitially: false
 ---
+## 2024-01-06
+### Arc Remover Improvement:
+Happy New Year! 
+I have made some huge progress on the arc remover algorithm thanks to my lab member's help. The previous arc remover algorithm is not locating parabola on each image slices properly. With the newly modified removing algorithm, not only can it remove the arc, it also can remove other distracting artifacts above the arcs. 
+
+The trick to achieve this is rather simple. The past algorithm performs the 
+
+
 ## 2023-11-28
 ### Contouring Development
 The contouring implementation that I was working on is based on the Marching Squares algorithm. The square data structure I design contains the following information:

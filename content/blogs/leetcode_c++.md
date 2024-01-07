@@ -1,11 +1,50 @@
 ---
 title: "LeetCode Problems"
-description: "Some notes for the LeetCode grind. The solution is written in C++.s"
+description: "Some notes for the LeetCode grind. The solution is written in C++."
 tags: ["LeetCode"]
 draft: false
-date: "2024-01-02"
+date: "2024-01-07"
 hideInitially: true #this is a custom Front Matter Variable.
 ---
+## Insert Interval (Medium)
+When I was working on this question, I found it slightly confusing because there seemed to be having a lot of cases, but I think the trick here is to simplify these cases and make sure that the simplified cases cover all the edge cases. While this sounded easy, it is in fact quite challenging. 
+
+For this question, there are three cases:
+- Case 1: if the current interval (`intervals[i]`) ends before `newInterval` starts. 
+- Case 2: if the current interval starts before or exactly at the end of `newInterval`. 
+- Case 3: there is no overlapping intervals which are larger than the `newInterval`.
+
+Another trick is to make a new vector of vector to return the answer.
+
+Case 2's condition check confused me
+```c++
+vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        vector<vector<int>> answer;
+        int length = intervals.size();
+        int i = 0;
+        while (i < length && newInterval[0] > intervals[i][1]) {
+            answer.push_back(intervals[i]);
+            i++;
+        }
+
+        while (i < length && newInterval[1] >= intervals[i][0]) {
+            newInterval[0] = min(intervals[i][0], newInterval[0]);
+            newInterval[1] = max(intervals[i][1], newInterval[1]);
+            i++;
+        }
+        answer.push_back(newInterval);
+
+        while (i < length) {
+            answer.push_back(intervals[i]);
+            i++;
+        }
+
+        return answer;
+    }
+```
+
+
+
 ## Maximum Subarray (Medium)
 Given an integer array `nums`, find the subarray with the largest sum and output the sum.
 
@@ -27,7 +66,21 @@ However the Brute Force will take `O(N^2)` time. Interviewers ain't gonna be hap
 
 The ideal way is to work on this with Dynamic Programming. To decide whether a problem can be solved with DP, we can ask if this problem can be solved by dividing it up into smaller problems, and if these smaller problems can be used to solve a larger problem.
 
-It is important to know what the subproblem is for any DP related problems. In the `Maximum Subarray` problem, the subproblem can be defined as "What is the maximum subarray sum ending at this particular element (index i)?"
+It is important to know what the subproblem is for any DP related problems. In the `Maximum Subarray` problem, we want to ask how can the solution to a subproblem help in solving the next subproblem; more specifically, the subproblem can be defined as "What is the maximum subarray sum ending at this particular element (index i)?"
+
+For the dynamic programming approach for the `Maximum Subarray` problem, the algorithm should always think about if we should continue adding numbers to the current subarray, or if we should start a new subarray. Being able to address these two situations is essential to the final solution:
+```c++
+int maxSubArray(vector<int>& nums) {
+        int max_ending_here = 0;
+        int max_so_far = INT_MIN;
+        for (int i = 0; i < nums.size(); ++i) {
+            max_ending_here = max(nums[i], max_ending_here + nums[i]);
+            max_so_far = max(max_ending_here, max_so_far);
+        } 
+        return max_so_far;
+    }
+
+```
 
 ## Majority Element
 - Create a Hash map in C++ by using `unodered_map`:
