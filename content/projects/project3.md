@@ -27,8 +27,8 @@ Another functionality is contouring, which draws contours around the white pixel
 Finally, the program Finally, the program attempts to eliminate the arc-like artifacts in the images. There are still some imperfections in the removal process, as some arcs may not be completely removed. 
  try to get rid of the arc-liked artifacts on the images:
 ![goal](/Images/projects_content/project_3/goal.png)
-![findMaxima](/Images/projects_content/project_3/findMaxima.gif)
-![removeArcs](/Images/projects_content/project_3/removeArcs.gif)
+![findMaxima](/Images/projects_content/project_3/FindMaxima.gif)
+![removeArcs](/Images/projects_content/project_3/removeArc.gif)
 
 There are still some flaws with the removing process as you might have noticed some arcs are not being removed. 
 
