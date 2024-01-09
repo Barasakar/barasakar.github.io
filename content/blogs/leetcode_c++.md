@@ -6,6 +6,54 @@ draft: false
 date: "2024-01-07"
 hideInitially: true #this is a custom Front Matter Variable.
 ---
+## 01 Matrix (Medium)
+This is a matrix related question; when we see a matrix, we can always relate it to a graph (i.e., represent the matrix with graphs). That said, this question can be regarded as a graph problem. Since it is asking me to calculate the distance of every cell to its closest 0-cell, it is difficult not to think about shortest path :D
+
+**Some remarks about shortest path:**
+DFS could work, but it only works after traversing through all paths. BFS is usually used for solving shortest path problems because it doesn't need to traverse through all paths to find the shortest path. 
+- DFS (stack)
+- BFS (queue)
+*It is worth noting that BFS works only when all edges have equal and positive weights.*
+
+**Solution:**
+Here are a few things that are crucial to solve this problem:
+- start with cells that are 0 instead of 1.
+- to reduce unnecessary operations, we don't need to use another data structure to keep tracks of `visited`; instead, we simply initialize all the cells with value 1 to `INT_MAX`.
+
+
+```c++
+    vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
+        int rows = mat.size();
+        int cols = mat[0].size();
+        queue<pair<int, int>> queue;
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                if(mat[i][j] == 0) {
+                    queue.push({i, j});
+                } else {
+                    mat[i][j] = INT_MAX;
+                }
+            }
+        }
+        vector<pair<int, int>> directions = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
+
+        while (!queue.empty()) {
+            pair<int, int> currentPair = queue.front();
+            queue.pop();
+            for (auto dir : directions) {
+                int newX = currentPair.first + dir.first;
+                int newY = currentPair.second + dir.second;
+                // check if it is in bound
+                if (newX >= 0 && newX < rows && newY >= 0 && newY < cols && mat[newX][newY] ==   INT_MAX) {
+                    mat[newX][newY] = mat[currentPair.first][currentPair.second] + 1;
+                    queue.push({newX, newY});
+                }
+            }
+        }
+        return mat;
+    }
+```
+
 ## Insert Interval (Medium)
 When I was working on this question, I found it slightly confusing because there seemed to be having a lot of cases, but I think the trick here is to simplify these cases and make sure that the simplified cases cover all the edge cases. While this sounded easy, it is in fact quite challenging. 
 
