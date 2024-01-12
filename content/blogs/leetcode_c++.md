@@ -6,6 +6,82 @@ draft: false
 date: "2024-01-07"
 hideInitially: true #this is a custom Front Matter Variable.
 ---
+## K Closest Points to Origin (Medium)
+It is not hard to solve this question, but it is a tricky to solve it optimally. 
+
+My original solution simply involves solving the question by sorting it (with merge sort) and then pick the first k elements from the sorted vector:
+```c++
+ vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
+        mergeSort(points, 0, points.size() - 1);
+        vector<vector<int>> output;
+        for (int i = 0; i < k ; ++i) {
+            output.push_back(points[i]);
+        }
+        return output;
+    }
+    void mergeSort(vector<vector<int>>& points, int const begin, int const end) {
+        if (begin >= end) {
+            return;
+        }
+        int mid = begin + (end - begin) / 2;
+        mergeSort(points , begin, mid);
+        mergeSort(points, mid + 1, end);
+        merge(points, begin, mid, end);
+    }
+    void merge(vector<vector<int>>& points, int const left, int const mid, int const right) {
+        int const arrayOneSize = mid - left + 1;
+        int const arrayTwoSize = right - mid;
+
+        vector<vector<int>> leftArray;
+        vector<vector<int>> rightArray;
+
+        for (auto i = 0; i < arrayOneSize; i++) {
+            leftArray.push_back(points[left + i]);
+        }
+        for (auto j = 0; j < arrayTwoSize; j++) {
+            rightArray.push_back(points[mid + 1 + j]);
+        }
+
+        auto indexOfSubArrayOne = 0, indexOfSubArrayTwo = 0;
+        int indexOfMergedArray = left;
+
+        while (indexOfSubArrayOne < arrayOneSize
+           && indexOfSubArrayTwo < arrayTwoSize) {
+            double distanceOne = pow(leftArray[indexOfSubArrayOne][0], 2) + pow(leftArray[indexOfSubArrayOne][1], 2);
+            double distanceTwo = pow(rightArray[indexOfSubArrayTwo][0], 2) + pow(rightArray[indexOfSubArrayTwo][1], 2);
+            if (distanceOne
+                <= distanceTwo) {
+                points[indexOfMergedArray]
+                    = leftArray[indexOfSubArrayOne];
+                indexOfSubArrayOne++;
+        }
+        else {
+            points[indexOfMergedArray]
+                = rightArray[indexOfSubArrayTwo];
+            indexOfSubArrayTwo++;
+        }
+        indexOfMergedArray++;
+        }
+
+        while (indexOfSubArrayOne < arrayOneSize) {
+            points[indexOfMergedArray]
+                = leftArray[indexOfSubArrayOne];
+            indexOfSubArrayOne++;
+            indexOfMergedArray++;
+        }
+        while (indexOfSubArrayTwo < arrayTwoSize) {
+            points[indexOfMergedArray]
+                = rightArray[indexOfSubArrayTwo];
+            indexOfSubArrayTwo++;
+            indexOfMergedArray++;
+        }
+    }
+
+```
+And of course, as its length implies, the algorithm is also not efficient. Why would I sort the whole thing if the question only ask for the first k elements? Perhaps I could partially sort the array?
+
+
+
 ## 01 Matrix (Medium)
 This is a matrix related question; when we see a matrix, we can always relate it to a graph (i.e., represent the matrix with graphs). That said, this question can be regarded as a graph problem. Since it is asking me to calculate the distance of every cell to its closest 0-cell, it is difficult not to think about shortest path :D
 
