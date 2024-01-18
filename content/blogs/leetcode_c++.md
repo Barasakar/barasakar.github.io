@@ -6,6 +6,59 @@ draft: false
 date: "2024-01-07"
 hideInitially: true #this is a custom Front Matter Variable.
 ---
+## 3Sum (Medium)
+This problem is essentially a `two-pointer` problem, except it gives another point as a third point. The difficult part about this problem is, in my opinion, figuring out the skipping logic. Everything else is fairly straight forward.
+
+**Here is an outline of the algorithm:**
+- If the size of the input vector is less than 3, you return it.
+- Sort the input.
+- Loop through the input and set each iteration as the pointer 3:
+    - When looping, be sure to check if the current pointer 3 is repeating.
+        - If so, `continue` the loop.
+        - If not, check if the sum of pointer 1, 2, and 3 is 0.
+            - If so, push it to the result.
+                - also make sure to skip both pointer 1 andd 2's repeated value, if any.
+            - Otherwise based on the situation, update pointer 1 and 2 positions accordingly.
+
+```c++
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> result;
+        if (nums.size() < 3) {
+            return vector<vector<int>>();
+        }
+        sort(nums.begin(), nums.end());
+
+        for (int x = 0; x < nums.size(); ++x) {
+            int i = x + 1;
+            int j = nums.size() - 1;
+            if (x > 0 && nums[x] == nums[x - 1]) {
+                    //x++;
+                    continue;
+            }
+            while (i < j) {
+                if (nums[x] + nums[i] + nums[j] == 0) {
+                    result.push_back(vector<int>{nums[x], nums[i], nums[j]});
+                    i++;
+                    j--;
+                    while (i < j && nums[i] == nums[i - 1]) {
+                        i++;
+                    }
+                    while (i < j && nums[j] == nums[j + 1]) {
+                        j--;
+                    }
+                } else if (nums[x] + nums[i] + nums[j] < 0) {
+                    i++;
+                } else {
+                    j--;
+                }
+            }   
+        } 
+        return result;
+    }
+```  
+
+
+
 ## K Closest Points to Origin (Medium)
 It is not hard to solve this question, but it is a tricky to solve it optimally. 
 
