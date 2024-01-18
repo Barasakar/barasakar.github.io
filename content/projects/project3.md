@@ -24,9 +24,11 @@ The imported images are grayscale. If desired, the program can binarize the imag
 Another functionality is contouring, which draws contours around the white pixels (with a value of 255) in the images.
 ![contouring](/Images/projects_content/project_3/contouring.gif)
 
-Finally, the program Finally, the program attempts to eliminate the arc-like artifacts in the images. There are still some imperfections in the removal process, as some arcs may not be completely removed. 
+Finally, the program attempts to eliminate the arc-like artifacts in the images. There are still some imperfections in the removal process, as some arcs may not be completely removed. 
  try to get rid of the arc-liked artifacts on the images:
 ![goal](/Images/projects_content/project_3/goal.png)
+
+![removeArcs](/Images/projects_content/project_3/Maxima.gif)
 
 ![removeArcs](/Images/projects_content/project_3/removeArc.gif)
 
