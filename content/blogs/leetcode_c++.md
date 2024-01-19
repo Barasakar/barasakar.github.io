@@ -6,6 +6,49 @@ draft: false
 date: "2024-01-07"
 hideInitially: true #this is a custom Front Matter Variable.
 ---
+## Binary Tree Level Order Traversal 
+I think this is a straight forwarded question; it simply asks you to traverse the nodes each level, and then group the nodes into a `vector<vector<int>>` datatype. 
+Now, when thinking about traversing all the nodes each level, it isn't hard to associate this concept with BFS.
+BFS is a rather generic algorithm, but for this question, there needs to have a little tweak to the BFS:
+- First we start pushing nodes in the current level to a `queue`.
+- Second, based on **the size of the queue**, we process the nodes currently in the queue. Using the size of the queue as a restraint for processing the queue is a key for solving this problem, as this restraint helps us separate nodes by levels.
+- Then we push the left and right nodes of the current processing node to the queue. After this, we pop the node.
+
+```c++
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        // result vector:
+        vector<vector<int>> result;
+        if (root == nullptr) {
+            return result;
+        }
+        // queue for handling BFS
+        queue<TreeNode*> q;
+        q.push(root);
+        while (!q.empty()) {
+            vector<int> temp;
+            int currentSize = q.size();
+            for (int i = currentSize; i > 0; i--) {
+                TreeNode* currentNode = q.front();
+                q.pop();
+                temp.push_back(currentNode->val);
+                queueNode(currentNode, q);
+            }
+            result.push_back(temp);
+            temp.clear();
+        }
+        return result;
+    }
+    void queueNode(TreeNode* root, queue<TreeNode*> &q) {
+        if (root->left != nullptr) {
+            q.push(root->left);
+        }
+        if (root->right != nullptr) {
+            q.push(root->right);
+        }
+
+    }
+```
+
 ## 3Sum (Medium)
 This problem is essentially a `two-pointer` problem, except it gives another point as a third point. The difficult part about this problem is, in my opinion, figuring out the skipping logic. Everything else is fairly straight forward.
 
