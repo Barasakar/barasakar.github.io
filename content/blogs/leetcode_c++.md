@@ -3,10 +3,44 @@ title: "LeetCode Problems"
 description: "Some notes for the LeetCode grind. The solution is written in C++."
 tags: ["LeetCode"]
 draft: false
-date: "2024-01-07"
+date: "2024-01-19"
 hideInitially: true #this is a custom Front Matter Variable.
 ---
-## Binary Tree Level Order Traversal 
+## Clone Graph (Medium):
+Oof, this is actually a confusing question. In my original implementation, I was using hashmap(unordered_map) but with type `<int, int>`, but it actually makes the question easier with type `<Node*, Node*>`
+
+Another thing that I was struggling to understand is to clone and maintain a graph structure for the new graph. In c++, we kinda need to use the keyword `new` to clone it. To maintain a graph structure, I need to make sure to update the adjacency list properly. 
+
+```c++
+Node* cloneGraph(Node* node) {
+        // let's do BFS
+        if (node == nullptr) {
+            return nullptr;
+        }
+        Node* result = new Node(node->val);
+        queue<Node*> q;
+
+        unordered_map<Node* , Node* > visited; //this
+        visited[node] = result;
+        q.push(node);
+        while (!q.empty()) {
+            Node* currentNeighbor = q.front();
+            q.pop();
+            for (Node* node : currentNeighbor->neighbors) {
+                if (visited.find(node) == visited.end()) {
+                    q.push(node);
+                    visited[node] = new Node(node->val);
+                }
+                // this is the step that I am actually confused about:
+                visited[currentNeighbor]->neighbors.push_back(visited[node]);
+            }
+        }
+        return result;
+    }
+```
+
+
+## Binary Tree Level Order Traversal (Medium): 
 I think this is a straight forwarded question; it simply asks you to traverse the nodes each level, and then group the nodes into a `vector<vector<int>>` datatype. 
 Now, when thinking about traversing all the nodes each level, it isn't hard to associate this concept with BFS.
 BFS is a rather generic algorithm, but for this question, there needs to have a little tweak to the BFS:
