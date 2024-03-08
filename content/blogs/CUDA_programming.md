@@ -4,6 +4,7 @@ description: "This blog will record my learning journey of programming a basic G
 tags: ["Engine Programming"]
 date: "2024-01-27"
 draft: false
+hideInitially: true
 ---
 ## Setup:
 ### Software and libraries used:
