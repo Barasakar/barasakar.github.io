@@ -6,6 +6,32 @@ draft: false
 date: "2024-07-11"
 hideInitially: false #this is a custom Front Matter Variable.
 ---
+# 2024-07-11
+## Refined Error Handling:
+Originally for the error handling, I created this macro `cudaCheckError`:
+```C++
+#define cudaCheckError(call) \
+    do { \
+        cudaError_t error = call; \
+        if (error != cudaSuccess) { \
+            std::cerr << "CUDA Error: " << cudaGetErrorString(error) << " in file " << __FILE__ << " at line " << __LINE__ << std::endl; \
+            exit(error); \
+        } \
+    } while(0)
+
+```
+This macro simply spills out the error in which file and at what line of the project, and terminate the program immediately. Not so graceful. That said, I decided to use **Exceptions** to improve error handling:
+```C++
+#define cudaCheckError(call) \
+    do { \
+        cudaError_t error = call; \
+        if (error != cudaSuccess) { \
+            std::string msg = "CUDA Error: " + std::string(cudaGetErrorString(error)) + " in file " + __FILE__ + " at line " + std::to_string(__LINE__); \
+            throw std::runtime_error(msg); \
+        } \
+    } while(0)
+```
+
 
 # 2024-07-09
 ## Initial thoughts for project structure:
