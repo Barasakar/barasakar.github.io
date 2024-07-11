@@ -6,8 +6,8 @@ draft: false
 date: "2024-07-11"
 hideInitially: false #this is a custom Front Matter Variable.
 ---
-# 2024-07-11
-## Refined Error Handling:
+## 2024-07-11
+### Refined Error Handling:
 Originally for the error handling, I created this macro `cudaCheckError`:
 ```C++
 #define cudaCheckError(call) \
@@ -33,14 +33,14 @@ This macro simply spills out the error in which file and at what line of the pro
 ```
 
 
-# 2024-07-09
-## Initial thoughts for project structure:
+## 2024-07-09
+### Initial thoughts for project structure:
 Given this project is going to be a mimic of Tensorflow library, I wanted to try my best to think about encapsulation and resource management. I could currently think of two ways of making my MiniTensorflow more dynamic and robust: 
 - Usage of template programming in C++ for flexibility with different data types, which is essential for a library intended for machine learning operations. 
 - Create a dedicate resource management class that focuses on Resource Acquisition is Initialization (RAII) by managing device memory allocation/de-allocation.
 
-## Progress thus far:
-### Memory Management Class:
+### Progress thus far:
+#### Memory Management Class:
 ```C++
 // CudaMemoryManagement_T.h
 #pragma once
@@ -116,7 +116,7 @@ In the code, both A and B point to the same memory location. So when these two o
 
 Instead, we could use **move semantics** to transfer ownership. This semantics allows you to transfer one **CudaMemoryManagement** to another without copying the resource itself. Also the `noexcept` keyword here just to specify these two functions don't throw exceptions; the goal for that is to ensure objects are in a valid state even if an exception occurs somewhere else. 
 
-### Integrate CudaMemoryManagement into other classes:
+#### Integrate CudaMemoryManagement into other classes:
 Here is the usage as to how it could work in other classes. I have this **MatrixOperations** class that performs different matrix operations. Originally for **MatrixOperations** constructor, I have something like this:
 ```C++
 template <typename T>
