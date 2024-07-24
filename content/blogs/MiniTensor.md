@@ -1,11 +1,12 @@
 ---
 title: "MiniTensor Dev Journal"
-description: "This is a dev journal about creating a mini tensorflow library written by C++ and CUDA. The link to the repo can be found here: https://github.com/Barasakar/Mini_Tensor"
+description: "This is a dev journal about creating a mini tensorflow library written by C++ and CUDA."
 tags: ["CUDA","Tensorflow" , "Dev Blog"]
 draft: false
 date: "2024-07-23"
 hideInitially: false #this is a custom Front Matter Variable.
 ---
+[Repository Link](https://github.com/Barasakar/Mini_Tensor)
 ## 2024-07-23
 ### Added GoogleTest and fixed a bug in Error Handling:
 
