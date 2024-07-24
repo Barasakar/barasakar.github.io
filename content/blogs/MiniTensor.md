@@ -1,11 +1,33 @@
 ---
 title: "MiniTensor Dev Journal"
-description: "This is a dev journal about creating a mini tensorflow library written by C++ and CUDA."
+description: "This is a dev journal about creating a mini tensorflow library written by C++ and CUDA. The link to the repo can be found here: https://github.com/Barasakar/Mini_Tensor"
 tags: ["CUDA","Tensorflow" , "Dev Blog"]
 draft: false
-date: "2024-07-11"
+date: "2024-07-23"
 hideInitially: false #this is a custom Front Matter Variable.
 ---
+## 2024-07-23
+### Added GoogleTest and fixed a bug in Error Handling:
+
+#### Bug Fix in Error Handling:
+There was in fact a small bug in the `cudaCheckError` macro I wrote. 
+I was getting an error about "cannot use + for two pointers", and error led me to the `MatrixOperations` class's destructor. However, within the destructor, I did not use any `+` operator. The only places I used the addition operator are the matrix addition method and the error handling macro. It turned out that the macro has a bug. 
+Originally:
+``` C++
+std::cerr << "CUDA Error: " << cudaGetErrorString(error) << " in file " << __FILE__ << " at line " << __LINE__ << std::endl; \
+```
+Now:
+``` C++
+std::cerr << "CUDA Error: " << std::string(cudaGetErrorString(error)) << " in file " << __FILE__ << " at line " << std::to_string(__LINE__) << std::endl; \
+```
+The fix was to convert the result from `cudaGetErrorString(error)` and `__LINE__` to string. 
+
+#### GoogleTest:
+I setup and added GoogleTest for my project. The Visual Studio solution is now called `Mini_Tensor_Tests` on GitHub. It has some very simple test cases for the matrix addition method I wrote. More to come. 
+
+I guess the next step, before writing more methods for the Mini Tensor library, is to figure out a way to wrap C++ with python such that users can call the C++ method with python.
+
+
 ## 2024-07-11
 ### Refined Error Handling:
 Originally for the error handling, I created this macro `cudaCheckError`:
