@@ -1,17 +1,17 @@
 ---
-title: "WashU Queue"
-description: "An online queue for class office hours"
-coverImage: "Images/projects_page/project_4_cover.png"
-weight: 3
+title: "Soundscape Generation for Panorama"
+description: "A training-free pipeline that synthesizes sound from street-level panoramic imagery, creating a more immersive and fine-grained soundscape experience based on depth"
+coverImage: "Images/projects_page/project_5_cover.png"
+weight: 1
 draft: false
 ---
 
 ## Introduction📓
-Office hours for large classes, especially before major project deadlines, often become hectic and busy for teaching assistants. Keeping track of the order of students needing assistance is challenging, with the current method limited to using a whiteboard to list names. This website seeks to resolve this issue by offering a clear and user-friendly interface. It introduces a more organized, queue-based system, allowing students to easily sign up for office hours and request help from the teaching assistants.
+This is a pipeline that generates soundscape from street-level panoramic imagery (Google Streetview). The ability to simulate the sounds of various locations can enable immersive auditory experiences, with applications in virtual reality, geospatial navigation, environmental monitoring, and more. This pipeline provides a training-free framework composed of a VLM, a depth estimator, a grounding model, and a text-to-audio model to synthesize soundscape for the specified location.
 
 ## Softwares Involve💻
-- **Programming languages:** Python, JavaScript, HTML, and CSS.
-- **Tools:** MongoDB, Django Framework.
+- **Programming languages:** Python
+- **Tools:** Pytorch, HuggingFace
 
 
 ## Project Demo

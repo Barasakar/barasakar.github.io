@@ -2,7 +2,7 @@
 title: "Arc Remover"
 description: "An image processing tool that removes artifacts from image data (.tiff)."
 coverImage: "Images/projects_page/project_3.png"
-weight: 1
+weight: 2
 draft: false
 ---
 
