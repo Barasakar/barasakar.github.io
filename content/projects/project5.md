@@ -12,26 +12,30 @@ This is a pipeline that generates soundscape from street-level panoramic imagery
 ## Softwares Involve💻
 - **Programming languages:** Python
 - **Tools:** Pytorch, HuggingFace
+- **Models:** InternVL2.5-MPO, Grounding DINO, DepthFM, TangoFlux
 
 
 ## Project Demo
-Users can login with their username and password, and if they aren't registered for the website, they could sign up by using the sign up form.
-![login page](/Images/projects_content/project_4/login_page.png)
+Below is the overview of the training-free framework: 
+![Framework](/Images/projects_content/project_5/framework.png)
 
-Once logged in, users can join the queue by entering their name, a question they have, and their location, whether it's a specific classroom or a Zoom link. Additionally, the website displays a list of available teaching assistants who are currently logged in and have the queue page open.
-![queue page](/Images/projects_content/project_4/queue_page.png)
+This framework synthesizes spatially aware soundscapes from ground-level imagery using a multi-stage pipeline. Starting with either a 360° panoramic image (split into N directional views) or a single ground-level image, we first employ a VLM to identify potential sound sources visible in the image.
+![vlm_concepts](/Images/projects_content/project_5/vlm_concepts.png)
 
-Here is an image that captures multiple users in the current session. There are two TAs, TA1 and TA2,with the teaching assistant role, and three students (jon, ben, and demo):
-![queue page](/Images/projects_content/project_4/multiple_users.png)
+A visual grounding model then precisely localizes these sound sources, while a monocular depth estimation model calculates their spatial positioning by estimating their distances from the viewer:
+![grounding_dino](/Images/projects_content/project_5/grounding_dino.png)
+![depthfm](/Images/projects_content/project_5/depthfm_outputs.png)
 
-As you can see, once a student joins the queue, they are not allowed to join the queue again (join button is grayed out) until they leave the queue or the TAs have finished assiting the student.
+To determine a particular object's distance from the camera, an image analysis algorithm is used to determine the pixel value within a bounding box given by the visual grounding model. And for each view, the pipeline finds the closest object to the view: 
+![closest_objects](/Images/projects_content/project_5/closest_objects.png)
 
-For TAs, their queue pages are similar to student's view. However, TAs' pages will have two buttons, `Answer` and `Delete` next to each student's queue entry.
-![queue page TA view](/Images/projects_content/project_4/queuePage_TAview.png)
+The pipeline uses TangoFlux to generate audios based on prompts. To simulate real-world audio propagation, we apply the inverse square law formulation. Based on the estimated distances of the audio sources, we select the top-m sound sources per image. For each identified sound source, a text-to-audio generative model synthesizes individual audio clips. In the final stage, spatial audio mixing adjusts the contribution of each sound source based on its distance—closer sources contribute more significantly to
+the resulting soundscape.
+![audios](/Images/projects_content/project_5/audios.png)
 
-By clicking the `Answer` button, the server will receive the request and update the webpage so that both the student and the TA know they are currently being helped.
-![help TA view](/Images/projects_content/project_4/help_TAview.png)
-![help Student view](/Images/projects_content/project_4/help_Studentview.png)
+## References
+_Shilong Liu, Zhaoyang Zeng, Tianhe Ren, Feng Li, Hao Zhang, Jie Yang, Qing Jiang, Chunyuan Li, Jianwei Yang, Hang Su, et al. Grounding dino: Marrying dino with grounded pre-training for open-set object detection. In European Conference on Computer Vision, pages 38–55. Springer, 2024._
 
-Finally, TAs can terminate an Office Hour Queue session when the Office Hour is done. By clicking the `terminate session` button, TAs can disable all active users' join queue forms (except other TAs):
-![help Student view](/Images/projects_content/project_4/terminate_session.png)
+_Ming Gui, Johannes Schusterbauer, Ulrich Prestel, Pingchuan Ma, Dmytro Kotovenko, Olga Grebenkova,Stefan Andreas Baumann, Vincent Tao Hu, and Bj¨orn Ommer. Depthfm: Fast monocular depth estimation with flow matching. arXiv preprint arXiv:2403.13788, 2024_
+
+_Chia-Yu Hung, Navonil Majumder, Zhifeng Kong, Ambuj Mehrish, Rafael Valle, Bryan Catanzaro, and Soujanya Poria.Tangoflux: Super fast and faithful text to audio generation with flow matching and clap-ranked preference optimization. arXiv preprint arXiv:2412.21037, 2024_
