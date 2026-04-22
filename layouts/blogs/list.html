@@ -1,23 +1,25 @@
 {{ define "main" }}
 <div class="posts-list">
-    {{ range $index, $element := .Paginator.Pages }}
-    <article id="{{ $index }}" class="{{ if .Params.hideInitially }}hidden{{ end }}">
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <div class="post-meta">Updated on {{ .Date.Format "January 2, 2006" }}</div>
+    {{ range .Paginator.Pages }}
+    <article>
+        <div class="post-header">
+            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            <span class="post-date">{{ .Date.Format "Jan 2006" }}</span>
+        </div>
+        {{ if .Description }}
+        <p class="post-description">{{ .Description }}</p>
+        {{ end }}
+        <div class="post-footer">
+            {{ if .Params.tags }}
+            <div class="post-tags">
+                {{ range .Params.tags }}
+                <span class="post-tag">{{ . }}</span>
+                {{ end }}
+            </div>
+            {{ end }}
+            <span class="post-reading-time">{{ .ReadingTime }} min read</span>
+        </div>
     </article>
     {{ end }}
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const togglePost = urlParams.get('togglePost');
-    if (togglePost) {
-        const postElement = document.getElementById(togglePost);
-        if (postElement) {
-            postElement.classList.toggle('hidden');
-        }
-    }
-});
-</script>
 {{ end }}

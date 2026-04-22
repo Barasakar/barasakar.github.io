@@ -1,29 +1,67 @@
 # data/aboutme.yaml
 
+name: Jiayu Lin
+
 bio: >
-  Hey this is Jiayu. You can call me Jonathan. I made the About Me page a more interactive by designing a command line interface!
-  Please give it a try!
+  Software engineer specializing in distributed systems, high-performance computing, and ML pipelines.
+  3+ years building scalable backends, GPU-accelerated systems, and full-stack data platforms.
+  Currently an AI Application Engineer at Bayer AG and Computer Vision Researcher at WashU.
 
 picture: "Images/me.png"
+
+experience:
+  - role: AI Application Engineer
+    company: Bayer AG
+    location: St. Louis, MO
+    period: Jan 2026 – Present
+    highlights:
+      - Managed deployment pipelines for open-source ML models in enterprise AWS environments
+      - Prototyped generative AI pipelines using AWS SageMaker to parse 7,000+ engineering standards
+      - Conducted feasibility studies for Graph RAG and custom computer vision pipelines for multimodal data
+  - role: Computer Vision Researcher
+    company: Multimodal Vision Research Lab, WashU
+    location: St. Louis, MO
+    period: Jul 2024 – Present
+    highlights:
+      - Built multimodal deep learning system for trajectory prediction combining LSTM encoder with U-Net backbone
+      - Engineered distributed data pipeline handling 100GB+ datasets with fault recovery and LSF cluster integration
+      - Designed multi-format export system (GeoParquet, CSV, GeoJSON) with 60% compression optimization
+  - role: Full-Stack Software Developer
+    company: Digital Transformation Program
+    location: St. Louis, MO
+    period: May 2025 – Aug 2025
+    highlights:
+      - Built geospatial visualization platform with Python backend and React frontend serving millions of records
+      - Implemented RESTful APIs for real-time querying over Parquet storage with interactive dashboards
+      - Coordinated integration across backend, frontend, and research stakeholders in an interdisciplinary team
+  - role: C++ CUDA Developer / Medical Optics Researcher
+    company: Z-Lab, WashU
+    location: St. Louis, MO
+    period: Aug 2023 – May 2024
+    highlights:
+      - Built GPU-accelerated OCT image processing pipelines using CUDA with Thrust and cuFFT
+      - Developed Qt C++ application for artifact removal from medical images
+      - Designed low-latency hardware-software communication interfaces with sub-millisecond response times
 
 education:
   - degree: M.S. in Computer Science
     institution: Washington University in St. Louis
-    year: 2022-2024  
-  - degree: B.S. in Philosophy
+    year: 2022–2024
+  - degree: B.A.S. in Philosophy
     institution: University of Illinois at Urbana-Champaign
-    year: 2018-2021
+    year: 2018–2021
 
 skills:
-  - Algorithm Analysis 
-  - Software Development
-  - Game Development
-  - Web Development
-  - Graphic Design
-  - Project Management
-
+  - Distributed Systems
+  - High-Performance Computing (CUDA/GPU)
+  - Machine Learning & Computer Vision
+  - Backend Development (Python, C++)
+  - Full-Stack Development (React, FastAPI)
+  - Cloud Infrastructure (AWS)
+  - MLOps & ML Deployment
+  - Data Processing
 
 hobbies:
   - Drawing
   - Cooking
-  - Playing video games 
+  - Playing video games

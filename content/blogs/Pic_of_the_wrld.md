@@ -2,7 +2,7 @@
 title: "Whether Euclidean Geometry a Picture of the World"
 description: "A silly paper I wrote back in 2017"
 tags: ["Philosophy"]
-draft: false
+draft: true
 date: "2023-11-22"
 hideInitially: false
 ---

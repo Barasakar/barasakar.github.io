@@ -1,46 +1,51 @@
 /* terminal.css */
+
 .terminal {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    font-size: 1.2em; /* Increase font size */
-    height: 500px;
-    max-height: 500px; /* for example, or 100% if it's within a flex container */
-    overflow-y: auto; /* this will allow vertical scrolling */
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 16px 20px 20px;
+  font-size: 0.9rem;
+  min-height: 200px;
+  max-height: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 #terminal-close {
-    font-size: 1.5em; 
-    line-height: 1; /* Aligns the text/icon vertically */
-    border: none;
-    background: transparent;
-    color: #909090; 
-    cursor: pointer;
+  align-self: flex-end;
+  font-size: 1.1rem;
+  line-height: 1;
+  border: none;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+#terminal-close:hover {
+  color: #ccc;
 }
 
 #terminal-input {
-    width: 100%;
-    background-color: var(--terminal-background-color);
-    color: var(--terminal-inputfont-color);
-    border: none;
-    padding: 15px; /* Increase padding for a larger feel */
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px; /* Set font size relative to the parent .terminal font size */
+  width: 100%;
+  background: transparent;
+  color: #d4d4d4;
+  border: none;
+  border-top: 1px solid #333;
+  padding: 10px 0 0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  outline: none;
+  caret-color: #d4d4d4;
 }
 
 #terminal-output {
-    font-family: 'Courier New', Courier, monospace; 
-    font-size: 14px; 
-    line-height: 1.5; 
-    display: block; 
-    max-height: 450px; 
-    overflow-y: auto; 
-    margin: 0; 
-    padding: 1em; 
-    white-space: pre-wrap; /* Ensures that the text goes to the next line */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  flex: 1;
+  overflow-y: auto;
+  white-space: pre-wrap;
 }
-
-.terminal.fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
